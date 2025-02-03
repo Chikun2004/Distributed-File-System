@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  mongodb-primary:
+    image: mongo:latest
+    command: mongod --replSet rs0 --bind_ip_all
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data_primary:/data/db
+    networks:
+      - dfs_network
+
+  mongodb-secondary:
+    image: mongo:latest
+    command: mongod --replSet rs0 --bind_ip_all
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data_secondary:/data/db
+    networks:
+      - dfs_network
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - dfs_network
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongodb-primary
+      - mongodb-secondary
+      - redis
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb-primary:27017,mongodb-secondary:27018/dfs?replicaSet=rs0
+      - REDIS_URL=redis://redis:6379
+    networks:
+      - dfs_network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - server
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+    networks:
+      - dfs_network
+
+networks:
+  dfs_network:
+    driver: bridge
+
+volumes:
+  mongodb_data_primary:
+  mongodb_data_secondary:
+  redis_data:

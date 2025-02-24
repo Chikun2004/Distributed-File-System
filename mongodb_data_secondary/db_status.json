@@ -1,0 +1,24 @@
+{
+    "instance_type": "secondary",
+    "port": 27018,
+    "status": "running",
+    "database": "dfs",
+    "collections": ["fs.files", "fs.chunks"],
+    "storage_engine": "wiredTiger",
+    "total_files": 2,
+    "total_size": 17776640,
+    "files_metadata": [
+        {
+            "filename": "document2.txt",
+            "fileId": "65d9f125c8d4e6f7g9012347",
+            "size": 2048,
+            "replicated": true
+        },
+        {
+            "filename": "video1.mp4",
+            "fileId": "65d9f126d8e5f7g8h9012348",
+            "size": 15728640,
+            "replicated": true
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "filename": "video1.mp4",
+    "fileId": "65d9f126d8e5f7g8h9012348",
+    "uploadDate": "2025-02-24T15:45:00Z",
+    "status": "active",
+    "location": "secondary",
+    "contentType": "video/mp4",
+    "size": 15728640,
+    "md5": "k1l2m3n4o5p6q7r8s9t0",
+    "chunkSize": 261120,
+    "replicas": ["primary"]
+}

@@ -1,0 +1,10 @@
+This is a sample document stored in the primary MongoDB instance.
+File ID: 65d9f123a8b2e4c7f9012345
+Created: 2025-02-24
+Status: active
+Location: primary
+Replicated: false
+Content-Type: text/plain
+Size: 1024 bytes
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

@@ -1,0 +1,24 @@
+{
+    "instance_type": "primary",
+    "port": 27017,
+    "status": "running",
+    "database": "dfs",
+    "collections": ["fs.files", "fs.chunks"],
+    "storage_engine": "wiredTiger",
+    "total_files": 2,
+    "total_size": 3072576,
+    "files_metadata": [
+        {
+            "filename": "document1.txt",
+            "fileId": "65d9f123a8b2e4c7f9012345",
+            "size": 1024,
+            "replicated": false
+        },
+        {
+            "filename": "image1.jpg",
+            "fileId": "65d9f124b8c3e5d7f9012346",
+            "size": 2048576,
+            "replicated": true
+        }
+    ]
+}

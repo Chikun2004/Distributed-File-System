@@ -1,0 +1,27 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# MongoDB data directories
+mongodb_data_primary/*
+!mongodb_data_primary/sample_files/
+!mongodb_data_primary/db_status.json
+
+mongodb_data_secondary/*
+!mongodb_data_secondary/sample_files/
+!mongodb_data_secondary/db_status.json
+
+# IDE files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env

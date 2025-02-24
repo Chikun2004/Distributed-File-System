@@ -1,0 +1,10 @@
+This is a sample document stored in the secondary MongoDB instance.
+File ID: 65d9f125c8d4e6f7g9012347
+Created: 2025-02-24
+Status: active
+Location: secondary
+Replicated: true
+Content-Type: text/plain
+Size: 2048 bytes
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

@@ -63,12 +63,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       
       // Mock signup - in a real app this would create a user in the backend
       const mockUser = { id: "1", email, name };
+      
+      // Set user state and store in localStorage (effectively logging in)
       setUser(mockUser);
       localStorage.setItem("user", JSON.stringify(mockUser));
-      toast.success("Account created successfully");
+      
+      // Show success message
+      toast.success("Account created and logged in successfully");
+      
+      return mockUser; // Return the user object for the component to use
     } catch (error) {
       toast.error("Failed to create account");
       console.error("Signup error:", error);
+      throw error; // Re-throw the error for the component to handle
     } finally {
       setIsLoading(false);
     }

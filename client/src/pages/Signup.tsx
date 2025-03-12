@@ -15,8 +15,14 @@ const Signup = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await signup(name, email, password);
-    navigate("/");
+    try {
+      await signup(name, email, password);
+      // User is now automatically logged in after successful signup
+      navigate("/");
+    } catch (error) {
+      // Error is already handled by AuthContext with toast
+      console.error("Signup failed:", error);
+    }
   };
 
   return (

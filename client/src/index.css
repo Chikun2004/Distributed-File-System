@@ -1,0 +1,84 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 199 89% 48%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    perspective: 1000px;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/50 backdrop-blur-lg border border-white/20;
+  }
+  
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+  }
+  
+  .card-3d:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .float-effect {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .rotate-3d {
+    animation: rotate3d 15s linear infinite;
+  }
+  
+  @keyframes rotate3d {
+    0% {
+      transform: rotate3d(1, 1, 1, 0deg);
+    }
+    100% {
+      transform: rotate3d(1, 1, 1, 360deg);
+    }
+  }
+}
